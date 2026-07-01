@@ -153,9 +153,4 @@ public class system1 {
             }
             System.out.println("没有该学生！");
         }
-
-
-
-
-
 }
