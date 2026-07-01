@@ -99,7 +99,10 @@ public class system {
                     break;
                 }
                 case 3: {
-                    System.out.println("【删除学生】");
+                    //删除学生信息
+                    System.out.print("请输入要删除学生的学号：");
+                    String id = sc.next();
+                    number = system1.deleteStudent(id, number, students);
                     break;
                 }
                 case 4: {

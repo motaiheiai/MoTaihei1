@@ -95,7 +95,21 @@ public class system1 {
         }
 
 //根据id删除某个学生
-        public static void deleteStudent(String id,system1[] students,int number){ }
+        public static int deleteStudent(String id,int number,system1[] students){
+
+            for (int i=0;i<number;i++){
+                if (students[i].getId().equals(id)){
+                    for (int j=i;j<number-1;j++){
+                        students[j]=students[j+1];
+                    }
+                    students[number-1]=null;
+                    System.out.println("删除成功！");
+                    return number-1;
+                }
+            }
+            System.out.println("没有该学生！");
+            return number;
+        }
 
         //查看所有学生信息
         public void showInfo( ){
