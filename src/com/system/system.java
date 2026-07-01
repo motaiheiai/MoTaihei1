@@ -37,6 +37,7 @@ public class system {
                     double javaScore = 0;
                     double mysqlScore = 0;
                     double springScore = 0;
+                    double totalScore = 0;
                     while (true){
                         System.out.print("请输入学生学号：");
                         id = sc.next();
@@ -83,7 +84,8 @@ public class system {
                             break;
                         }
                     }
-                    system1 a=new  system1(id, name, javaScore, mysqlScore, springScore);
+                    totalScore = system1.setTotalScore(javaScore, mysqlScore, springScore, totalScore);
+                    system1 a=new  system1(id, name, javaScore, mysqlScore, springScore, totalScore);
                     students[number] = a;
                     number++;
                     System.out.println("添加成功！");
@@ -92,7 +94,7 @@ public class system {
                 }
                 case 2: {
                     //查看所有学生
-                    System.out.println("学号"+"\t"+"姓名"+"\t"+"Java"+"\t\t"+"MySQL"+"\t\t"+"Spring");
+                    System.out.println("学号"+"\t"+"姓名"+"\t"+"Java"+"\t\t"+"MySQL"+"\t\t"+"Spring"+"\t\t"+"总分");
                     for (int i=0;i<number;i++){
                             students[i].showInfo();
                     }
@@ -106,22 +108,27 @@ public class system {
                     break;
                 }
                 case 4: {
-                    System.out.println("【修改成绩】");
+                    System.out.print("请输入要修改成绩学生的学号：");
+                    String id = sc.next();
+                    system1.updateStudent(id, number, students);
                     break;
                 }
                 case 5: {
                     System.out.println("【总分排名】");
+
                     break;
                 }
                 case 6: {
                     System.out.println("【查询单科最高分】");
                     break;
                 }
+                case 7: {
+                    System.out.println("【系统已退出！】");
+                    break;
+                }
                 default: System.out.println("请选择正确的菜单！");
 
             }
         }
-
-        System.out.println("系统已退出！");
     }
 }
